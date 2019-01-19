@@ -1,9 +1,11 @@
-// api.js
-// comes from webpack config external
-// import config from 'config';
+// returns a promise
+export function getAllProducts() {
+    return fetch("http://api.nodesense.ai/api/products")
+           .then (response => response.json())
+}
 
-// return promise
-export function getProducts() {
-    // return fetch(`${config.apiEndPoint}/api/products`)
-    //        .then (response => response.json() )
+// example for es8, async, await
+export async function getProducts() {
+    return fetch("http://api.nodesense.ai/api/products")
+           .then (response => response.json())
 }

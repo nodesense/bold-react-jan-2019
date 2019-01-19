@@ -1,5 +1,5 @@
 // action creators
-
+// redux-cart/state/actions.js
 import * as ActionTypes from "./action-types";
 import * as api from "./api";
 
@@ -56,21 +56,41 @@ export const initLoading = (loading) => {
     }
 }
 
-// initLoading(true) => action object
+// redux-thunk, to implement ajax/async code in actions.js
+// return a function as an action, not object as action - Thunk design
+export function fetchProductFromServer2() {
+    return function asyncFetchProduct(dispatch, getState) {
+        // called by thunk middleware
+        console.log('called by thunk');
 
-// thunk, return function as an action
-// async, return a function as an action
-export function fetchProductsFromServer() {
-    
-    return function(dispatch, getState) {
-        console.log('***CALLED BY Middleware')
-        // async code
-        dispatch(initLoading(true));
-        return api.getProducts()
-                  .then (products => {
-                      dispatch(initProducts(products))
-                      dispatch(initLoading(false));
-                  })
+        // initialize loading to true
+        dispatch(initLoading(true)); 
+
+        api.getAllProducts()
+            .then (products => {
+                // dispatch initProducts with products
+                dispatch(initProducts(products));
+                dispatch(initLoading(false));  
+             
+            })
+
     }
-    
+}
+
+export function fetchProductFromServer() {
+    return async  (dispatch, getState) => {
+        // called by thunk middleware
+        console.log('called by thunk');
+
+        try {
+            // initialize loading to true
+            dispatch(initLoading(true)); 
+            const products = await api.getProducts();
+            dispatch(initProducts(products));
+            dispatch(initLoading(false)); 
+        }catch(error) {
+
+        }
+
+    }
 }

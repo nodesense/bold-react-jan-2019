@@ -62,6 +62,15 @@ export default function Header(props) {
                      className="button" 
                      activeClassName="success" >Redux Cart</NavLink>
 
+            <NavLink to="/login"  
+                     className="button" 
+                     activeClassName="success" >Login</NavLink>
+
+            
+            <NavLink to="/test"  
+                     className="button" 
+                     activeClassName="success" >Test</NavLink>
+
 
             <hr />
         </div>

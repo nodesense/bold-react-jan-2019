@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Counter from './components/Counter';
 
 import Cart from './components/Cart';
+import AuthRoute from './components/AuthRoute'; 
 
 import {BrowserRouter as Router, 
         Route,
@@ -21,9 +22,14 @@ import NotFound from './components/NotFound';
 import ReduxCounter from './components/ReduxCounter';
 
 import ReduxCart from './redux-cart/containers/Cart';
+import ProductList from './redux-cart/containers/ProductList';
 
+ 
 // import from container only
 import FuncCounter from './containers/FuncCounter';
+
+import Login from './containers/Login';
+
 
 // class component
 // react create object for class component
@@ -44,14 +50,24 @@ export default class App extends Component {
                     <Route path="/" exact component={Home} />
                     <Redirect path="/home" to="/" />
                     
-                    <Route path="/cart" component={Cart} />
-                    <Route path="/redux-cart" component={ReduxCart} />
+                    <AuthRoute path="/cart" component={Cart} />
+                    <AuthRoute path="/redux-cart" component={ReduxCart} />
+                    <AuthRoute path="/products" component={ProductList} />
 
                     <Route path="/about" component={About} />
                     <Route path="/counter" component={Counter} />
                     <Route path="/redux-counter" component={ReduxCounter} />
 
                     <Route path="/func-counter" component={FuncCounter} />
+
+                    <Route path="/login" component={Login} />
+
+                    <Route path="/test" render={ () => (
+                        <div>
+                            <h2>TEst Page</h2>
+                        </div>
+                    )} />
+
 
                     
                     

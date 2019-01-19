@@ -1,4 +1,6 @@
 
+// redux-cart/containers/ProductList.js
+
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
@@ -15,10 +17,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        // this.props.fetchProducts()
         fetchProducts: function() {
-                
-            let actionFn = actions.fetchProductsFromServer();
-            // dispatching a function
+            // action function
+            const actionFn = actions.fetchProductFromServer();
+            //dispatch a function as action
             dispatch(actionFn);
         }, 
         actions: bindActionCreators(actions, dispatch)

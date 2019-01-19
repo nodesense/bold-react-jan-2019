@@ -14,3 +14,11 @@ export const decrement = (value) => ({
     type: ActionTypes.DECREMENT,
     payload: {value}
 })
+
+export const logout = () => ({
+    type: ActionTypes.LOGGED_OUT
+})
+
+export const login = () => ({
+    type: ActionTypes.LOGGED_IN
+})

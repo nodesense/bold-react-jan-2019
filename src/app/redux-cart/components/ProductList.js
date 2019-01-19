@@ -30,6 +30,7 @@ export default class ProductList extends Component {
     }
     
     componentDidMount() {
+        // calling a method in container mapDispatchToProps
        this.props.fetchProducts();
     }
     
