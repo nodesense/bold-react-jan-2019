@@ -9,6 +9,8 @@ import Counter from './components/Counter';
 import Cart from './components/Cart';
 import AuthRoute from './components/AuthRoute'; 
 
+import Dynamic from './components/Dynamic'; 
+
 import {BrowserRouter as Router, 
         Route,
         Switch,
@@ -68,7 +70,7 @@ export default class App extends Component {
                         </div>
                     )} />
 
-
+                    <Route path="/dynamic" component={Dynamic} />
                     
                     
                     <Route path="*" component={NotFound} />

@@ -71,6 +71,10 @@ export default function Header(props) {
                      className="button" 
                      activeClassName="success" >Test</NavLink>
 
+            <NavLink to="/dynamic"  
+                     className="button" 
+                     activeClassName="success" >Dynamic</NavLink>
+
 
             <hr />
         </div>
